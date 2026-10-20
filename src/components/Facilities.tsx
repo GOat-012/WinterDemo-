@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 interface FacilitiesProps {
   onSelectFacilityImage: (imageIndex: number) => void;
@@ -29,7 +30,7 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
       title: 'Strength Training',
       description:
         'Custom 4x3-inch commercial steel power cages, calibrated Eleiko IPF plates, integrated deadlift drop platforms, and specialized specialty bars.',
-      image: '/src/assets/images/facility_strength_1792468610696.jpg',
+      image: IMAGES.facilities.strength,
       specs: ['Eleiko IPF Competition Bars', 'Dual Adjustable Pulley Towers', 'Band-Tension Pegs & Chains', 'Belt Squat & Glute Ham Developers'],
     },
     {
@@ -38,7 +39,7 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
       title: 'Free Weights',
       description:
         'Solid polyurethane dumbbells extending from 5kg to 70kg in 2.5kg increments, paired with heavy-duty ergonomic multi-angle incline and decline benches.',
-      image: '/src/assets/images/hero_winter_gym_1792468609580.jpg',
+      image: IMAGES.facilities.freeWeights,
       specs: ['Custom Matte Urethane Dumbbells (5–70kg)', 'Zero-Wobble Locking Benches', 'Precision EZ-Curl & Hex Bars', 'Cast-Iron Calibrated Microplates'],
     },
     {
@@ -47,7 +48,7 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
       title: 'Cardio Suite',
       description:
         'Non-motorized Woodway curved treadmills, Concept2 PM5 Rowers, and SkiErgs engineered for natural gait mechanics and self-regulated energy expenditure.',
-      image: '/src/assets/images/facility_cardio_functional_1792468611669.jpg',
+      image: IMAGES.facilities.cardio,
       specs: ['Woodway Curve Slatted Runners', 'Concept2 RowErg & SkiErg Stations', 'Wattbike AtomX Smart Trainers', 'Real-time Telemetry Monitors'],
     },
     {
@@ -56,7 +57,7 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
       title: 'Functional Training',
       description:
         'High-density 30-meter indoor sprint turf, competition kettlebells, sled push lanes, battle ropes, and ceiling-anchored gymnastics suspension rings.',
-      image: '/src/assets/images/campaign_chalk_athlete_1792468611299.jpg',
+      image: IMAGES.facilities.functional,
       specs: ['30m Heavy Turf Sled Lane', 'Competition Cast Kettlebells (8–48kg)', 'Rogue Dog Sleds & Prowlers', 'Gymnastic Rings & Plyometric Vaults'],
     },
   ];
@@ -92,6 +93,7 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
               <div className="relative aspect-[16/10] overflow-hidden bg-[#0D0F0E]">
                 <img
                   src={fac.image}
+                  onError={handleImageError}
                   alt={fac.title}
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.82] group-hover:brightness-[0.92]"
                   loading="lazy"

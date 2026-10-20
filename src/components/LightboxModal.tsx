@@ -6,6 +6,7 @@
 import React, { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, Info } from 'lucide-react';
 import { GalleryImage } from './Gallery';
+import { handleImageError } from '../constants/images';
 
 interface LightboxModalProps {
   isOpen: boolean;
@@ -74,6 +75,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
       <div className="relative max-w-6xl max-h-[75vh] w-full flex items-center justify-center my-auto">
         <img
           src={current.src}
+          onError={handleImageError}
           alt={current.title}
           className="max-h-[72vh] max-w-full object-contain filter brightness-[0.92] contrast-[1.08] shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-[#252826]"
           referrerPolicy="no-referrer"

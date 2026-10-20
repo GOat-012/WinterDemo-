@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 interface CampaignBannerProps {
   onOpenJoinModal: () => void;
@@ -19,7 +20,8 @@ export const CampaignBanner: React.FC<CampaignBannerProps> = ({ onOpenJoinModal 
       {/* Background Cinematic Photo with Chalk Dust & Dramatic Spotlight */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/campaign_chalk_athlete_1792468611299.jpg"
+          src={IMAGES.campaign}
+          onError={handleImageError}
           alt="Athlete clapping chalked hands before heavy lift in dramatic spotlight"
           className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-[1.15]"
           loading="lazy"

@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Shield, Sparkles, Target } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 interface BrandStatementProps {
   onOpenConsultation: () => void;
@@ -98,7 +99,8 @@ export const BrandStatement: React.FC<BrandStatementProps> = ({ onOpenConsultati
           <div className="lg:col-span-7 relative group">
             <div className="relative h-full min-h-[460px] md:min-h-[580px] overflow-hidden border border-[#252826] bg-[#171918]">
               <img
-                src="/src/assets/images/facility_strength_1792468610696.jpg"
+                src={IMAGES.brandPhilosophy}
+                onError={handleImageError}
                 alt="Architectural strength training area with custom black power racks and ambient illumination"
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.85] contrast-[1.1]"
                 loading="lazy"

@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Maximize2 } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 export interface GalleryImage {
   src: string;
@@ -15,37 +16,37 @@ export interface GalleryImage {
 
 export const GALLERY_ITEMS: GalleryImage[] = [
   {
-    src: '/src/assets/images/hero_winter_gym_1792468609580.jpg',
+    src: IMAGES.hero,
     title: 'Twilight Lifting Bay',
     zone: 'BAY 01 · ELEIKO PLATFORM',
     caption: 'Architectural twilight view overlooking the city skyline with competition power cages and calibrated steel plates.',
   },
   {
-    src: '/src/assets/images/facility_strength_1792468610696.jpg',
+    src: IMAGES.facilities.strength,
     title: 'Custom Modular Steel Racks',
     zone: 'BAY 02 · STRENGTH SUITE',
     caption: 'Heavy-gauge 4x3-inch commercial power racks with integrated deadlift platforms and matte amber backlighting.',
   },
   {
-    src: '/src/assets/images/facility_cardio_functional_1792468611669.jpg',
+    src: IMAGES.facilities.functional,
     title: 'Sprint Turf & Sled Track',
     zone: 'ZONE 04 · TURF CONDITIONING',
     caption: '30-meter indoor sprint turf, Rogue dog sleds, and curved Woodway self-powered treadmills.',
   },
   {
-    src: '/src/assets/images/campaign_chalk_athlete_1792468611299.jpg',
+    src: IMAGES.campaign,
     title: 'Pre-Lift Chalk Dispersion',
     zone: 'PLATFORM 03 · DISCIPLINE',
     caption: 'Athlete chalking hands before a maximal effort deadlift under directional warm champagne spotlighting.',
   },
   {
-    src: '/src/assets/images/trainer_portrait_1792468610400.jpg',
+    src: IMAGES.trainers.marcus,
     title: 'Master Coach Instruction',
     zone: 'CONSULTATION & ASSESSMENT',
     caption: 'One-on-one kinematic evaluation and movement trajectory analysis with Head of Performance.',
   },
   {
-    src: '/src/assets/images/hero_winter_gym_1792468609580.jpg',
+    src: IMAGES.facilities.freeWeights,
     title: 'Free Weight Dumbbell Gallery',
     zone: 'ZONE 02 · RESISTANCE FLOOR',
     caption: 'Polyurethane dumbbell arrays from 5kg to 70kg alongside multi-angle ergonomic zero-wobble benches.',
@@ -86,6 +87,7 @@ export const Gallery: React.FC<GalleryProps> = ({ onOpenLightbox }) => {
           >
             <img
               src={GALLERY_ITEMS[0].src}
+              onError={handleImageError}
               alt={GALLERY_ITEMS[0].title}
               className="w-full h-full object-cover filter brightness-[0.82] contrast-[1.1] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.95]"
               loading="lazy"
@@ -112,6 +114,7 @@ export const Gallery: React.FC<GalleryProps> = ({ onOpenLightbox }) => {
           >
             <img
               src={GALLERY_ITEMS[1].src}
+              onError={handleImageError}
               alt={GALLERY_ITEMS[1].title}
               className="w-full h-full object-cover filter brightness-[0.82] contrast-[1.1] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.95]"
               loading="lazy"
@@ -138,6 +141,7 @@ export const Gallery: React.FC<GalleryProps> = ({ onOpenLightbox }) => {
           >
             <img
               src={GALLERY_ITEMS[2].src}
+              onError={handleImageError}
               alt={GALLERY_ITEMS[2].title}
               className="w-full h-full object-cover filter brightness-[0.82] contrast-[1.1] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.95]"
               loading="lazy"
@@ -164,6 +168,7 @@ export const Gallery: React.FC<GalleryProps> = ({ onOpenLightbox }) => {
           >
             <img
               src={GALLERY_ITEMS[3].src}
+              onError={handleImageError}
               alt={GALLERY_ITEMS[3].title}
               className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.15] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.95]"
               loading="lazy"

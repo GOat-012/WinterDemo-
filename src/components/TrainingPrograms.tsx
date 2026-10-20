@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ArrowRight, Check, Activity, Flame, ShieldAlert, Award } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 interface TrainingProgramsProps {
   onOpenConsultation: (programName?: string) => void;
@@ -43,7 +44,7 @@ export const TrainingPrograms: React.FC<TrainingProgramsProps> = ({ onOpenConsul
         'De-load sequencing every 5th training week',
       ],
       metrics: 'Standard outcome: +4–7kg lean mass over 24 weeks with biometric DEXA tracking',
-      image: '/src/assets/images/hero_winter_gym_1792468609580.jpg',
+      image: IMAGES.programs.hypertrophy,
     },
     {
       id: 'fat-loss',
@@ -61,7 +62,7 @@ export const TrainingPrograms: React.FC<TrainingProgramsProps> = ({ onOpenConsul
         'Nutritional caloric titration & sleep hygiene optimization',
       ],
       metrics: 'Average metabolic baseline increase of 14% with sustained body composition recomp',
-      image: '/src/assets/images/facility_cardio_functional_1792468611669.jpg',
+      image: IMAGES.programs.conditioning,
     },
     {
       id: 'strength-training',
@@ -79,7 +80,7 @@ export const TrainingPrograms: React.FC<TrainingProgramsProps> = ({ onOpenConsul
         'Competition taper and attempt selection strategy',
       ],
       metrics: 'Documented 15–30% increase on total platform lifts across complete cycles',
-      image: '/src/assets/images/facility_strength_1792468610696.jpg',
+      image: IMAGES.programs.strength,
     },
     {
       id: 'personal-training',
@@ -97,7 +98,7 @@ export const TrainingPrograms: React.FC<TrainingProgramsProps> = ({ onOpenConsul
         'Direct 24/7 coach messaging via encrypted concierge channel',
       ],
       metrics: 'Uncompromising 100% adherence architecture tailored strictly for high-performing executives',
-      image: '/src/assets/images/trainer_portrait_1792468610400.jpg',
+      image: IMAGES.programs.coaching,
     },
   ];
 
@@ -199,6 +200,7 @@ export const TrainingPrograms: React.FC<TrainingProgramsProps> = ({ onOpenConsul
           <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden border border-[#252826] bg-[#171918]">
             <img
               src={currentProgram.image}
+              onError={handleImageError}
               alt={currentProgram.title}
               className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.1] transition-transform duration-700 hover:scale-105"
               loading="lazy"

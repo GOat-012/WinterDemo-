@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ArrowRight, PhoneCall, Calendar } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 interface FinalCtaProps {
   onOpenJoinModal: () => void;
@@ -17,7 +18,8 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onOpenJoinModal, onOpenTourM
       {/* Background High-Impact Photograph */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_winter_gym_1792468609580.jpg"
+          src={IMAGES.finalCta}
+          onError={handleImageError}
           alt="The Winter Gym training hall at twilight"
           className="w-full h-full object-cover object-center filter brightness-[0.4] contrast-[1.15]"
           loading="lazy"

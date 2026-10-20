@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { Award, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { IMAGES, handleImageError } from '../constants/images';
 
 interface TrainersProps {
   onOpenConsultation: (coachName: string) => void;
@@ -39,7 +40,7 @@ export const Trainers: React.FC<TrainersProps> = ({ onOpenConsultation }) => {
         'B.S. Exercise Physiology (Sample)',
       ],
       specialties: ['Competitive Powerlifting', 'Hypertrophy Periodization', 'CNS Fatigue Management'],
-      image: '/src/assets/images/trainer_portrait_1792468610400.jpg',
+      image: IMAGES.trainers.marcus,
     },
     {
       id: 'elena',
@@ -54,7 +55,7 @@ export const Trainers: React.FC<TrainersProps> = ({ onOpenConsultation }) => {
         'FRC Certified Mobility Specialist (Sample)',
       ],
       specialties: ['Joint Capsule Health', 'Kinematic Assessment', 'Metabolic Reconditioning'],
-      image: '/src/assets/images/campaign_chalk_athlete_1792468611299.jpg',
+      image: IMAGES.trainers.elena,
     },
     {
       id: 'david',
@@ -69,7 +70,7 @@ export const Trainers: React.FC<TrainersProps> = ({ onOpenConsultation }) => {
         'Precision Nutrition Level 1 (Sample)',
       ],
       specialties: ['Sprint & Deceleration Mechanics', 'Turf Conditioning', 'Kettlebell Ballistics'],
-      image: '/src/assets/images/facility_cardio_functional_1792468611669.jpg',
+      image: IMAGES.trainers.david,
     },
   ];
 
@@ -118,6 +119,7 @@ export const Trainers: React.FC<TrainersProps> = ({ onOpenConsultation }) => {
           <div className="lg:col-span-5 relative min-h-[420px] overflow-hidden border border-[#252826] bg-[#171918]">
             <img
               src={currentCoach.image}
+              onError={handleImageError}
               alt={currentCoach.name}
               className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.1] transition-transform duration-700 hover:scale-105"
               loading="lazy"

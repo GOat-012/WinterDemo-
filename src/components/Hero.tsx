@@ -6,6 +6,8 @@
 import React from 'react';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 
+import { IMAGES, handleImageError } from '../constants/images';
+
 interface HeroProps {
   onOpenJoinModal: (tier?: string) => void;
   onExploreClick: () => void;
@@ -20,7 +22,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal, onExploreClick }) =
       {/* Background Image Container with Slow Zoom */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="/src/assets/images/hero_winter_gym_1792468609580.jpg"
+          src={IMAGES.hero}
+          onError={handleImageError}
           alt="The Winter Gym interior featuring custom strength training equipment and twilight skyline"
           className="w-full h-full object-cover object-center scale-105 animate-[pulse_14s_ease-in-out_infinite] transition-transform duration-[12000ms] hover:scale-110 filter brightness-[0.78] contrast-[1.12]"
           referrerPolicy="no-referrer"
